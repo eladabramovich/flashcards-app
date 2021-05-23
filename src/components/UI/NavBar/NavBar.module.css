@@ -1,0 +1,31 @@
+.header {
+  width: 100%;
+}
+
+.linksList {
+  display: flex;
+  height: 65px;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+}
+
+.linksList .item:first-child {
+  margin-right: 15px;
+}
+
+.linksList .item a,
+.linksList .item a:visited {
+  font-weight: 700;
+  color: rgb(22, 99, 161);
+  text-decoration: none;
+}
+
+.linksList .item a:hover,
+.linksList .item a:active {
+  color: rgb(109, 178, 235);
+}
+
+.linksList .item a.active {
+  text-decoration: underline;
+}
