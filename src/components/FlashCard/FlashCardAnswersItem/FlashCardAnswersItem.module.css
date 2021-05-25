@@ -1,0 +1,11 @@
+.item {
+  display: flex;
+  width: 350px;
+  height: 120px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 2px 4px rgba(200, 200, 200, 0.8);
+  background-color: #ffffff;
+  cursor: pointer;
+}
