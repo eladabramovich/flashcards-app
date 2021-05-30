@@ -1,0 +1,38 @@
+[
+  {
+    "id": "2021-05-25T13:33:58.773Z",
+    "question": "How many notes are composing a chord",
+    "answers": [
+      { "id": "a", "text": "4 notes" },
+      { "id": "b", "text": "3 notes" },
+      { "id": "c", "text": "2 notes" },
+      { "id": "d", "text": "5 notes" }
+    ],
+    "correctAnswer": "b",
+    "summary": "A chord is made from a root note as well as a third and fifth notes"
+  },
+  {
+    "id": "2021-05-25T13:34:23.797Z",
+    "question": "In total, how many tones and semi tones are in one Octave?",
+    "answers": [
+      { "id": "a", "text": "3 tones and 0 semi tones" },
+      { "id": "b", "text": "7 tones and 1 semi tones" },
+      { "id": "c", "text": "2 tones and 5 semi tones" },
+      { "id": "d", "text": "5 tones and 2 semi tones" }
+    ],
+    "correctAnswer": "d",
+    "summary": "There is a semi tone between E-F and between B-C. Between the rest of the notes  there is a full tone"
+  },
+  {
+    "id": "2021-05-25T13:35:04.731Z",
+    "question": "How would you write F sharp?",
+    "answers": [
+      { "id": "a", "text": "F$" },
+      { "id": "b", "text": "F*" },
+      { "id": "c", "text": "F#" },
+      { "id": "d", "text": "F!" }
+    ],
+    "correctAnswer": "c",
+    "summary": "The notation for a sharp note is a hashtag"
+  }
+]

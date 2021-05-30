@@ -1,7 +1,16 @@
 import styles from './FlashCardAnswersItem.module.css';
 
-const FlashCardAnswersItem = () => {
-  return <div className={styles.item}>a container of 8 notes</div>;
+type Props = {
+  id: string;
+  children: Object;
+  onClicked: (id: string) => void;
+};
+const FlashCardAnswersItem = ({ id, children, onClicked }: Props) => {
+  return (
+    <div className={styles.item} onClick={() => onClicked(id)}>
+      {children}
+    </div>
+  );
 };
 
 export default FlashCardAnswersItem;
