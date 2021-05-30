@@ -15,11 +15,18 @@ const QuizPage = () => {
   const { cardsState, cardsDispatch } = useContext(FlashcardsContext);
   let content = null;
 
-  const clickHandler = (id: string) => {
+  const clickHandler = (
+    event: React.MouseEvent<HTMLDivElement>,
+    id: string,
+    styleClass: string
+  ) => {
+    const target = event.target as HTMLDivElement;
+    target.classList.add(styleClass);
+
     if (cardsState.items[0].correctAnswer === id) {
-      cardsDispatch({ type: 'NEXT_CARD' });
-    } else {
-      alert('no');
+      setTimeout(() => {
+        cardsDispatch({ type: 'NEXT_CARD' });
+      }, 500);
     }
   };
 
@@ -32,7 +39,6 @@ const QuizPage = () => {
 
   const resetQuiz = () => {
     cardsDispatch({ type: 'RESET' });
-    setIsPlaying(true);
   };
 
   if (isPlaying && cardsState.items.length >= 1) {
@@ -44,7 +50,11 @@ const QuizPage = () => {
               question={item.question}
               summary={item.summary}
             />
-            <FlashCardAnswers answers={item.answers} onClicked={clickHandler} />
+            <FlashCardAnswers
+              answers={item.answers}
+              correctAnswerId={item.correctAnswer}
+              onClicked={clickHandler}
+            />
           </div>
         );
       } else {

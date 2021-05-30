@@ -3,11 +3,25 @@ import styles from './FlashCardAnswersItem.module.css';
 type Props = {
   id: string;
   children: Object;
-  onClicked: (id: string) => void;
+  correctAnswerId: string;
+  onClicked: (
+    e: React.MouseEvent<HTMLDivElement>,
+    id: string,
+    styleClass: string
+  ) => void;
 };
-const FlashCardAnswersItem = ({ id, children, onClicked }: Props) => {
+const FlashCardAnswersItem = ({
+  id,
+  correctAnswerId,
+  children,
+  onClicked,
+}: Props) => {
+  const itemStyle =
+    id === correctAnswerId
+      ? `${styles.item} ${styles.correct}`
+      : `${styles.item} ${styles.wrong}`;
   return (
-    <div className={styles.item} onClick={() => onClicked(id)}>
+    <div className={itemStyle} onClick={(e) => onClicked(e, id, styles.chosen)}>
       {children}
     </div>
   );

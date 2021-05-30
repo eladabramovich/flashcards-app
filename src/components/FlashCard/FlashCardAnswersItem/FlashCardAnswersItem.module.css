@@ -1,4 +1,5 @@
 .item {
+  position: relative;
   display: flex;
   width: 350px;
   height: 120px;
@@ -8,4 +9,41 @@
   box-shadow: 0 2px 4px rgba(200, 200, 200, 0.8);
   background-color: #ffffff;
   cursor: pointer;
+}
+
+.item::before {
+  position: absolute;
+  content: '';
+  visibility: hidden;
+  top: 10px;
+  left: 12px;
+  font-family: 'Font Awesome 5 Free';
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.chosen.item.correct {
+  border: 1px solid #00ca00;
+}
+
+.chosen.item.wrong {
+  border: 1px solid #ba2727;
+}
+
+.correct.item::before {
+  content: '\f00c';
+}
+
+.chosen.correct.item::before {
+  visibility: visible;
+  color: #00ca00;
+}
+
+.wrong.item::before {
+  content: '\f00d';
+}
+
+.chosen.wrong.chosen.item::before {
+  visibility: visible;
+  color: #ba2727;
 }

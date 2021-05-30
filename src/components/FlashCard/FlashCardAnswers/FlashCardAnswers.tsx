@@ -9,15 +9,21 @@ type Props = {
     { id: 'c'; text: string },
     { id: 'd'; text: string }
   ];
-  onClicked: (id: string) => void;
+  correctAnswerId: string;
+  onClicked: (
+    e: React.MouseEvent<HTMLDivElement>,
+    id: string,
+    styleClass: string
+  ) => void;
 };
-const FlashCardAnswers = ({ answers, onClicked }: Props) => {
+const FlashCardAnswers = ({ answers, correctAnswerId, onClicked }: Props) => {
   return (
     <div className={styles.flashCardAnswers}>
       {answers.map((answer) => (
         <FlashCardAnswersItem
           key={answer.id}
           id={answer.id}
+          correctAnswerId={correctAnswerId}
           onClicked={onClicked}
         >
           {answer.text}
