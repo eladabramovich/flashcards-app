@@ -6,6 +6,14 @@
   box-sizing: border-box;
 }
 
+:root {
+  --primary-color: #1663a1;
+  --text-primary-color: #212121;
+
+  --header-height: 65px;
+  --header-margin-b: 32px;
+}
+
 body {
   font-family: 'Open Sans', 'Ariel', 'Helvetica Neue', sans-serif;
   background-color: #fefdfd;

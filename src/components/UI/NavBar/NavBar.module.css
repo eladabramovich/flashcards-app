@@ -1,11 +1,11 @@
 .header {
   width: 100%;
-  margin-bottom: 32px;
+  margin-bottom: var(--header-margin-b);
 }
 
 .linksList {
   display: flex;
-  height: 65px;
+  height: var(--header-height);
   justify-content: center;
   align-items: center;
   list-style-type: none;
@@ -18,13 +18,13 @@
 .linksList .item a,
 .linksList .item a:visited {
   font-weight: 700;
-  color: rgb(22, 99, 161);
+  color: var(--primary-color);
   text-decoration: none;
 }
 
 .linksList .item a:hover,
 .linksList .item a:active {
-  color: rgb(109, 178, 235);
+  color: #6db2eb;
 }
 
 .linksList .item a.active {
