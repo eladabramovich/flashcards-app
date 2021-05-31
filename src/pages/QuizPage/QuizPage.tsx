@@ -35,11 +35,13 @@ const QuizPage = () => {
     if (cardsState.items.length === 0) {
       cardsDispatch({ type: 'LOAD', payload: musicCards as Flashcard[] });
     }
+    cardsDispatch({ type: 'SHUFFLE' });
     setIsPlaying(true);
   };
 
   const resetQuiz = () => {
     cardsDispatch({ type: 'RESET' });
+    cardsDispatch({ type: 'SHUFFLE' });
   };
 
   if (isPlaying && cardsState.items.length >= 1) {

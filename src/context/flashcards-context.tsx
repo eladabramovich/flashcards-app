@@ -78,7 +78,6 @@ const removeFromTop = (state: State, _: Action): State => {
   if (updatedState.items.length <= 0) return state;
   const removedCard = updatedState.items.shift()!;
   updatedState.usedItems.push(removedCard);
-  console.log(updatedState);
   return {
     ...state,
     items: updatedState.items,
