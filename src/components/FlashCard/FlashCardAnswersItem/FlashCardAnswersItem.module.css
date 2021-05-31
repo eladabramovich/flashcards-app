@@ -8,6 +8,7 @@
   border: 1px solid #e5e5e5;
   box-shadow: 0 2px 4px rgba(200, 200, 200, 0.8);
   background-color: #ffffff;
+  font-size: 16px;
   cursor: pointer;
 }
 
@@ -46,4 +47,10 @@
 .chosen.wrong.chosen.item::before {
   visibility: visible;
   color: #ba2727;
+}
+
+@media screen and (max-width: 400px) {
+  .item {
+    width: 280px;
+  }
 }

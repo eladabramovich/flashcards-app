@@ -4,12 +4,12 @@ import NavBar from './components/UI/NavBar/NavBar';
 import QuizPage from './pages/QuizPage/QuizPage';
 import ManageCardsPage from './pages/ManageCardsPage/ManageCardsPage';
 
-import './App.css';
+import styles from './App.module.css';
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className={styles.app}>
         <NavBar />
         <Switch>
           <Route path="/manage-cards" component={ManageCardsPage} />

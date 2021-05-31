@@ -26,6 +26,7 @@ const QuizPage = () => {
     if (cardsState.items[0].correctAnswer === id) {
       setTimeout(() => {
         cardsDispatch({ type: 'NEXT_CARD' });
+        window.scrollTo(0, 0);
       }, 500);
     }
   };

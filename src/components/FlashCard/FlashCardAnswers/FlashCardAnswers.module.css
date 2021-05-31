@@ -5,3 +5,9 @@
   row-gap: 24px;
   justify-items: center;
 }
+
+@media screen and (max-width: 992px) {
+  .flashCardAnswers {
+    grid-template-columns: 1fr;
+  }
+}

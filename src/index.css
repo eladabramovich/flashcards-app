@@ -17,4 +17,5 @@
 body {
   font-family: 'Open Sans', 'Ariel', 'Helvetica Neue', sans-serif;
   background-color: #fefdfd;
+  -webkit-font-smoothing: antialiased;
 }
