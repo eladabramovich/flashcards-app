@@ -1,4 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { v4 as uuid } from 'uuid';
+
+import { FlashcardsContext } from '../../../context/flashcards-context';
+
+import { Flashcard } from '../../../types/flashcards-types';
 
 import styles from './AddFlashCardForm.module.css';
 
@@ -11,6 +16,7 @@ interface AnswersValues {
 }
 
 const AddFlashCardForm = () => {
+  const { cardsDispatch } = useContext(FlashcardsContext);
   const [question, setQuestion] = useState('');
   const [answers, setAnswers] = useState<AnswersValues>({
     a: '',
@@ -45,7 +51,19 @@ const AddFlashCardForm = () => {
       setErrorMessage(error);
       return;
     }
-    console.log('hellp');
+    const newFlashCard: Flashcard = {
+      id: uuid(),
+      question: question,
+      answers: [
+        { id: 'a', text: answers.a },
+        { id: 'b', text: answers.b },
+        { id: 'c', text: answers.c },
+        { id: 'd', text: answers.d },
+      ],
+      summary: summary,
+      correctAnswer: correctAnswer as unknown as Flashcard['correctAnswer'],
+    };
+    cardsDispatch({ type: 'ADD', payload: newFlashCard });
   };
   return (
     <form

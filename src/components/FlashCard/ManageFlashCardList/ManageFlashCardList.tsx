@@ -7,7 +7,6 @@ type Props = {
 };
 
 const ManageFlashCardList = ({ cards }: Props) => {
-  console.log(cards);
   return (
     <div className={styles.manageFlashCardList}>
       {cards.map((card) => (
@@ -16,18 +15,6 @@ const ManageFlashCardList = ({ cards }: Props) => {
           <button className={styles.deleteBtn}>delete</button>
         </div>
       ))}
-      <div className={styles.item}>
-        <h3 className={styles.question}>Question</h3>
-        <button className={styles.deleteBtn}>delete</button>
-      </div>
-      <div className={styles.item}>
-        <h3 className={styles.question}>Question</h3>
-        <button className={styles.deleteBtn}>delete</button>
-      </div>
-      <div className={styles.item}>
-        <h3 className={styles.question}>Question</h3>
-        <button className={styles.deleteBtn}>delete</button>
-      </div>
     </div>
   );
 };

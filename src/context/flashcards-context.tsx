@@ -8,11 +8,12 @@ type State = {
 
 type Action = {
   type: string;
-  payload?: Flashcard[];
+  payload?: Flashcard | Flashcard[];
 };
 
 type CardsActions =
   | { type: 'LOAD'; payload?: Flashcard[] }
+  | { type: 'ADD'; payload: Flashcard }
   | { type: 'SHUFFLE' }
   | { type: 'NEXT_CARD' }
   | { type: 'RESET' };
@@ -34,6 +35,8 @@ const reducer = (state: State, action: Action): State => {
   switch (action.type) {
     case 'LOAD':
       return loadCards(state, action);
+    case 'ADD':
+      return addCard(state, action);
     case 'SHUFFLE':
       return shuffleCards(state, action);
     case 'NEXT_CARD':
@@ -49,7 +52,7 @@ const loadCards = (state: State, action: Action): State => {
   if (action.payload) {
     return {
       ...state,
-      items: action.payload,
+      items: action.payload as Flashcard[],
     };
   } else {
     const cards: Flashcard[] =
@@ -59,6 +62,12 @@ const loadCards = (state: State, action: Action): State => {
       items: cards,
     };
   }
+};
+
+const addCard = (state: State, action: Action): State => {
+  const updatedItems = [...state.items, action.payload] as Flashcard[];
+  localStorage.setItem('flashcards', JSON.stringify(updatedItems));
+  return { ...state, items: updatedItems };
 };
 
 const shuffleCards = (state: State, _: Action): State => {
