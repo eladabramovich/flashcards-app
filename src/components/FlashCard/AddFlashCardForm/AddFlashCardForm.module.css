@@ -20,6 +20,11 @@
 .formGroup input,
 .formGroup textarea {
   margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.formGroup textarea {
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 }
 
 .formGroup input {
@@ -74,6 +79,7 @@
   color: #ffffff;
   font-weight: 700;
   font-size: 18px;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 500px) {
