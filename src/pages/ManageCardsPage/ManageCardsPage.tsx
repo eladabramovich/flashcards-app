@@ -20,12 +20,17 @@ const ManageCardsPage = () => {
   const sortedCards = cardsState.items.sort((a, b) =>
     a.question.localeCompare(b.question)
   );
+
+  const deleteCard = (id: string) => {
+    cardsDispatch({ type: 'DELETE', payload: id });
+    cardsDispatch({ type: 'LOAD' });
+  };
   return (
     <main>
       <Container>
         <h1 className={styles.title}>Manage Flashcards</h1>
         <AddFlashCardForm />
-        <ManageFlashCardList cards={sortedCards} />
+        <ManageFlashCardList cards={sortedCards} onClicked={deleteCard} />
       </Container>
     </main>
   );

@@ -9,6 +9,7 @@
 :root {
   --primary-color: #1663a1;
   --text-primary-color: #212121;
+  --text-error-color: #e21d1d;
 
   --header-height: 65px;
   --header-margin-b: 32px;

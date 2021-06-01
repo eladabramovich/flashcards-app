@@ -19,19 +19,26 @@
   font-size: 18px;
 }
 
-.instructions p:last-of-type {
+.instructions > p:last-of-type {
   margin-bottom: 48px;
 }
 
 .btnCont {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .btnCont.resetView {
   height: calc(100vh - var(--header-height) - var(--header-margin-b));
+}
+
+.btnCont .error {
+  margin: 8px 0 12px;
+  text-align: center;
+  color: var(--text-error-color);
 }
 
 .btnCont .quizBtn {
@@ -43,6 +50,12 @@
   font-size: 18px;
   font-weight: 700;
   cursor: pointer;
+}
+
+.btnCont .quizBtn:disabled {
+  color: #aaaaaa;
+  border: 2px solid #aaaaaa;
+  cursor: not-allowed;
 }
 
 @media screen and (max-width: 500px) {

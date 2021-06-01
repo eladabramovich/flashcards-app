@@ -4,16 +4,23 @@ import { Flashcard } from '../types/flashcards-types';
 type State = {
   items: Flashcard[];
   usedItems: Flashcard[];
+  error: FlashCardError | null;
 };
 
 type Action = {
   type: string;
-  payload?: Flashcard | Flashcard[];
+  payload?: any;
 };
+
+interface FlashCardError {
+  type: string;
+  message: string;
+}
 
 type CardsActions =
   | { type: 'LOAD'; payload?: Flashcard[] }
   | { type: 'ADD'; payload: Flashcard }
+  | { type: 'DELETE'; payload: string }
   | { type: 'SHUFFLE' }
   | { type: 'NEXT_CARD' }
   | { type: 'RESET' };
@@ -21,6 +28,7 @@ type CardsActions =
 const initialState = {
   items: [] as Flashcard[],
   usedItems: [] as Flashcard[],
+  error: null,
 };
 
 export const FlashcardsContext = createContext<{
@@ -37,6 +45,8 @@ const reducer = (state: State, action: Action): State => {
       return loadCards(state, action);
     case 'ADD':
       return addCard(state, action);
+    case 'DELETE':
+      return deleteCard(state, action);
     case 'SHUFFLE':
       return shuffleCards(state, action);
     case 'NEXT_CARD':
@@ -49,6 +59,14 @@ const reducer = (state: State, action: Action): State => {
 };
 
 const loadCards = (state: State, action: Action): State => {
+  const cards: Flashcard[] =
+    action.payload! || JSON.parse(localStorage.getItem('flashcards')!);
+  if (!cards || cards.length === 0) {
+    state.error = { type: 'load', message: 'Please add at least one card' };
+  } else {
+    state.error = null;
+  }
+
   if (action.payload) {
     return {
       ...state,
@@ -66,6 +84,12 @@ const loadCards = (state: State, action: Action): State => {
 
 const addCard = (state: State, action: Action): State => {
   const updatedItems = [...state.items, action.payload] as Flashcard[];
+  localStorage.setItem('flashcards', JSON.stringify(updatedItems));
+  return { ...state, items: updatedItems };
+};
+
+const deleteCard = (state: State, action: Action): State => {
+  const updatedItems = state.items.filter((item) => item.id !== action.payload);
   localStorage.setItem('flashcards', JSON.stringify(updatedItems));
   return { ...state, items: updatedItems };
 };

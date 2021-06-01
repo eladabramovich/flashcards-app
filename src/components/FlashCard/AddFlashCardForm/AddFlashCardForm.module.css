@@ -57,7 +57,7 @@
 .error {
   margin: 8px 0 16px;
   text-align: center;
-  color: #e21d1d;
+  color: var(--text-error-color);
 }
 
 .btnCont {

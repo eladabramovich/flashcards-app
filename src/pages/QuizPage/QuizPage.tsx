@@ -89,7 +89,15 @@ const QuizPage = () => {
           flashcards and a list of exising cards.
         </p>
         <div className={styles.btnCont}>
-          <button className={styles.quizBtn} onClick={() => startQuiz()}>
+          {console.log(cardsState.error)}
+          {cardsState.error && (
+            <p className={styles.error}>{cardsState.error.message}</p>
+          )}
+          <button
+            className={styles.quizBtn}
+            disabled={cardsState.error ? true : false}
+            onClick={() => startQuiz()}
+          >
             Start quiz
           </button>
         </div>

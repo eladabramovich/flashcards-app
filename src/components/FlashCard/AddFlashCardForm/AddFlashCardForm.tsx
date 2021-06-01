@@ -64,6 +64,7 @@ const AddFlashCardForm = () => {
       correctAnswer: correctAnswer as unknown as Flashcard['correctAnswer'],
     };
     cardsDispatch({ type: 'ADD', payload: newFlashCard });
+    cardsDispatch({ type: 'LOAD' });
   };
   return (
     <form
