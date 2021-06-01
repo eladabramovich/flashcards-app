@@ -5,9 +5,6 @@ import Container from '../../components/UI/Container/Container';
 import FlashCardQuestion from '../../components/FlashCard/FlashCardQuestion/FlashCardQuestion';
 import FlashCardAnswers from '../../components/FlashCard/FlashCardAnswers/FlashCardAnswers';
 
-import musicCards from '../../data/music-theory-flashcards.json';
-
-import { Flashcard } from '../../types/flashcards-types';
 import styles from './QuizPage.module.css';
 
 const QuizPage = () => {
@@ -33,7 +30,7 @@ const QuizPage = () => {
 
   const startQuiz = () => {
     if (cardsState.items.length === 0) {
-      cardsDispatch({ type: 'LOAD', payload: musicCards as Flashcard[] });
+      cardsDispatch({ type: 'LOAD' });
     }
     cardsDispatch({ type: 'SHUFFLE' });
     setIsPlaying(true);

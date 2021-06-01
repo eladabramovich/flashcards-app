@@ -1,7 +1,7 @@
 [
   {
     "id": "2021-05-25T13:33:58.773Z",
-    "question": "How many notes are composing a chord",
+    "question": "How many notes are composing a chord?",
     "answers": [
       { "id": "a", "text": "4 notes" },
       { "id": "b", "text": "3 notes" },

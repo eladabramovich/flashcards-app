@@ -12,7 +12,7 @@ type Action = {
 };
 
 type CardsActions =
-  | { type: 'LOAD'; payload: Flashcard[] }
+  | { type: 'LOAD'; payload?: Flashcard[] }
   | { type: 'SHUFFLE' }
   | { type: 'NEXT_CARD' }
   | { type: 'RESET' };
@@ -46,10 +46,19 @@ const reducer = (state: State, action: Action): State => {
 };
 
 const loadCards = (state: State, action: Action): State => {
-  return {
-    ...state,
-    items: action.payload!,
-  };
+  if (action.payload) {
+    return {
+      ...state,
+      items: action.payload,
+    };
+  } else {
+    const cards: Flashcard[] =
+      JSON.parse(localStorage.getItem('flashcards')!) || [];
+    return {
+      ...state,
+      items: cards,
+    };
+  }
 };
 
 const shuffleCards = (state: State, _: Action): State => {
