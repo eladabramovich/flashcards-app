@@ -1,11 +1,14 @@
 import Container from '../../components/UI/Container/Container';
+import AddFlashCardForm from '../../components/FlashCard/AddFlashCardForm/AddFlashCardForm';
 
-// import styles from './ManageCardsPage.module.css';
+import styles from './ManageCardsPage.module.css';
 
 const ManageCardsPage = () => {
   return (
     <main>
-      <Container>Manage Cards Page</Container>
+      <Container>
+        <AddFlashCardForm />
+      </Container>
     </main>
   );
 };
