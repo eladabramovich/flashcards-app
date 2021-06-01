@@ -1,0 +1,49 @@
+.manageFlashCardList {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-items: center;
+  margin-top: 48px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 342px;
+  margin-bottom: 24px;
+  padding-top: 8px;
+  box-shadow: 0 2px 4px rgba(150, 150, 150, 0.8);
+  background-color: #ffffff;
+}
+
+.question {
+  margin-left: 8px;
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+.deleteBtn {
+  width: 100%;
+  height: 28px;
+  background-color: #9e0404;
+  border: 1px solid #9e0404;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 1280px) {
+  .manageFlashCardList {
+    grid-template-columns: repeat(2, auto);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .manageFlashCardList {
+    grid-template-columns: auto;
+  }
+
+  .item {
+    width: 100%;
+  }
+}
