@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import { v4 as uuid } from 'uuid';
 
 import { FlashcardsContext } from '../../../context/flashcards-context';
@@ -16,6 +16,7 @@ interface AnswersValues {
 }
 
 const AddFlashCardForm = () => {
+  const formRef = useRef<HTMLFormElement>(null);
   const { cardsDispatch } = useContext(FlashcardsContext);
   const [question, setQuestion] = useState('');
   const [answers, setAnswers] = useState<AnswersValues>({
@@ -44,6 +45,27 @@ const AddFlashCardForm = () => {
     return '';
   };
 
+  const cleanInputs = () => {
+    const formEl = formRef.current as HTMLFormElement;
+    const textInputs = formEl.querySelectorAll('input[type=text]');
+    textInputs.forEach((input) => {
+      let textInput = input as HTMLInputElement;
+      textInput.value = '';
+      textInput.focus();
+      textInput.blur();
+    });
+    const textareaEl = formEl.querySelector('textarea') as HTMLTextAreaElement;
+    textareaEl.value = '';
+    textareaEl.focus();
+    textareaEl.blur();
+    const radioInputs = formEl.querySelectorAll('input[type=radio]');
+    radioInputs.forEach((input) => {
+      let radioInput = input as HTMLInputElement;
+      radioInput.checked = false;
+      radioInput.value = '';
+    });
+  };
+
   const onSubmit = (e: React.MouseEvent<HTMLFormElement>) => {
     e.preventDefault();
     const error = checkErrors();
@@ -65,11 +87,13 @@ const AddFlashCardForm = () => {
     };
     cardsDispatch({ type: 'ADD', payload: newFlashCard });
     cardsDispatch({ type: 'LOAD' });
+    cleanInputs();
   };
   return (
     <form
       onSubmit={(e: React.MouseEvent<HTMLFormElement>) => onSubmit(e)}
       id={styles.addCardForm}
+      ref={formRef}
       noValidate
     >
       <div className={styles.formGroup}>
