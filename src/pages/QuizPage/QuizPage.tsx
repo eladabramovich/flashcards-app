@@ -79,7 +79,7 @@ const QuizPage = () => {
           that you will be presented with a question and four possible answers
           to choose from. If you are unsure what is the right answer you can
           hover over/touch the question card to reveal a short summary. When you
-          have an answer in mind, click on the answer card to check and if you
+          have an answer in mind, click on the answer card to check, and if you
           are correct you will be moved to the next flashcard question.
         </p>
         <h3>Manage cards:</h3>
