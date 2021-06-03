@@ -21,6 +21,7 @@
 .formGroup textarea {
   margin-bottom: 8px;
   font-size: 16px;
+  border: 1px solid #858585;
 }
 
 .formGroup textarea {
@@ -57,6 +58,10 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 12px;
+}
+
+.gridGroup .formGroup input {
+  width: 100%;
 }
 
 .error {
