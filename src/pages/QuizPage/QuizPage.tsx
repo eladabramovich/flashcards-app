@@ -89,7 +89,6 @@ const QuizPage = () => {
           flashcards and a list of exising cards.
         </p>
         <div className={styles.btnCont}>
-          {console.log(cardsState.error)}
           {cardsState.error && (
             <p className={styles.error}>{cardsState.error.message}</p>
           )}
