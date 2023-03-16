@@ -21,6 +21,22 @@ const ManageCardsPage = () => {
     a.question.localeCompare(b.question)
   );
 
+  const loadCardsHandler = async () => {
+    try {
+      //@ts-ignore
+      let [fileHandle] = await window.showOpenFilePicker();
+      const file = await fileHandle.getFile();
+      const contents = await file.text();
+
+      cardsDispatch({ type: 'DELETE_ALL' });
+      cardsDispatch({ type: 'LOAD_DECK', payload: JSON.parse(contents) });
+    } catch (err) {
+      //@ts-ignore
+      console.log(err.name, err.message);
+      console.dir(err);
+    }
+  };
+
   const deleteCard = (id: string) => {
     cardsDispatch({ type: 'DELETE', payload: id });
     cardsDispatch({ type: 'LOAD' });
@@ -29,6 +45,11 @@ const ManageCardsPage = () => {
     <main>
       <Container>
         <h1 className={styles.title}>Manage Flashcards</h1>
+        <div className={styles.buttonBar}>
+          <button className="loadCards" onClick={loadCardsHandler}>
+            Load Cards
+          </button>
+        </div>
         <AddFlashCardForm />
         <ManageFlashCardList cards={sortedCards} onClicked={deleteCard} />
       </Container>
