@@ -22,7 +22,6 @@ type CardsActions =
   | { type: 'LOAD_DECK'; payload?: Flashcard[] }
   | { type: 'ADD'; payload: Flashcard }
   | { type: 'DELETE'; payload: string }
-  | { type: 'DELETE_ALL' }
   | { type: 'SHUFFLE' }
   | { type: 'NEXT_CARD' }
   | { type: 'RESET' };
@@ -67,6 +66,8 @@ const loadDeckFile = (state: State, action: Action) => {
     state.error = { type: 'LOAD_DECK', message: 'Deck file is corrupted' };
     return { ...state };
   }
+
+  localStorage.setItem('flashcards', JSON.stringify(action.payload));
 
   return loadCards(state, action);
 };

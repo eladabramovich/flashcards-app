@@ -22,21 +22,30 @@ const ManageCardsPage = () => {
   );
 
   const loadCardsHandler = async (): Promise<void> => {
+    if (typeof window.showOpenFilePicker !== 'function') {
+      alert('Browser not supported.');
+      return;
+    }
+
     try {
       let [fileHandle] = await window.showOpenFilePicker();
       const file = await fileHandle.getFile();
       const contents = await file.text();
 
-      cardsDispatch({ type: 'DELETE_ALL' });
       cardsDispatch({ type: 'LOAD_DECK', payload: JSON.parse(contents) });
     } catch (err) {
-      //@ts-ignore
-      console.log(err.name, err.message);
-      console.dir(err);
+      if (err.code !== 20) {
+        alert('Could not load deck file');
+      }
     }
   };
 
   const saveCardsHandler = async (): Promise<void> => {
+    if (typeof window.showSaveFilePicker !== 'function') {
+      alert('Browser not supported.');
+      return;
+    }
+
     try {
       const fileHandle = (await getNewFileHandle()) as FileSystemFileHandle;
       if (fileHandle === null) {
