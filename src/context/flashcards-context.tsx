@@ -61,7 +61,7 @@ const reducer = (state: State, action: Action): State => {
   }
 };
 
-const loadDeckFile = (state: State, action: Action) => {
+const loadDeckFile = (state: State, action: Action): State => {
   if (!validateDeckFile(action.payload)) {
     state.error = { type: 'LOAD_DECK', message: 'Deck file is corrupted' };
     return { ...state };
@@ -72,7 +72,7 @@ const loadDeckFile = (state: State, action: Action) => {
   return loadCards(state, action);
 };
 
-const validateDeckFile = (deck: Flashcard[]) => {
+const validateDeckFile = (deck: Flashcard[]): boolean => {
   for (let card of deck) {
     if (
       !card.id ||

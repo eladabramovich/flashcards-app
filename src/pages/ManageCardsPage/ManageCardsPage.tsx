@@ -21,7 +21,7 @@ const ManageCardsPage = () => {
     a.question.localeCompare(b.question)
   );
 
-  const loadCardsHandler = async (): Promise<void> => {
+  const loadDeckHandler = async (): Promise<void> => {
     if (typeof window.showOpenFilePicker !== 'function') {
       alert('Browser not supported.');
       return;
@@ -40,7 +40,7 @@ const ManageCardsPage = () => {
     }
   };
 
-  const saveCardsHandler = async (): Promise<void> => {
+  const saveDeckHandler = async (): Promise<void> => {
     if (typeof window.showSaveFilePicker !== 'function') {
       alert('Browser not supported.');
       return;
@@ -112,11 +112,11 @@ const ManageCardsPage = () => {
       <Container>
         <h1 className={styles.title}>Manage Flashcards</h1>
         <div className={styles.buttonBar}>
-          <button className={styles.actionBtn} onClick={loadCardsHandler}>
-            Load Cards
+          <button className={styles.actionBtn} onClick={loadDeckHandler}>
+            Load Deck
           </button>
-          <button className={styles.actionBtn} onClick={saveCardsHandler}>
-            Save Cards
+          <button className={styles.actionBtn} onClick={saveDeckHandler}>
+            Save Deck
           </button>
         </div>
         <AddFlashCardForm />
