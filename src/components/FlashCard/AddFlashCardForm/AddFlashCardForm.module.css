@@ -30,6 +30,7 @@
 
 .formGroup input {
   height: 26px;
+  padding-left: 4px;
 }
 
 .formGroup label {

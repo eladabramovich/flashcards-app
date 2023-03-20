@@ -12,18 +12,6 @@
     "summary": "A chord is made from a root note as well as a third and fifth notes"
   },
   {
-    "id": "61f176b5-01e7-4100-a8f3-d62ea25922dd",
-    "question": "In total, how many tones and semi tones are in one Octave?",
-    "answers": [
-      { "id": "a", "text": "3 tones and 0 semi tones" },
-      { "id": "b", "text": "7 tones and 1 semi tones" },
-      { "id": "c", "text": "2 tones and 5 semi tones" },
-      { "id": "d", "text": "5 tones and 2 semi tones" }
-    ],
-    "correctAnswer": "d",
-    "summary": "There is a semi tone between E-F and between B-C. Between the rest of the notes  there is a full tone"
-  },
-  {
     "id": "b1d87e89-5b33-4190-bbee-b02a5711bd79",
     "question": "How would you write F sharp?",
     "answers": [
@@ -34,5 +22,17 @@
     ],
     "correctAnswer": "c",
     "summary": "The notation for a sharp note is a hashtag"
+  },
+  {
+    "id": "61f176b5-01e7-4100-a8f3-d62ea25922dd",
+    "question": "In total, how many tones and semi tones are in one Octave?",
+    "answers": [
+      { "id": "a", "text": "3 tones and 0 semi tones" },
+      { "id": "b", "text": "7 tones and 1 semi tones" },
+      { "id": "c", "text": "2 tones and 5 semi tones" },
+      { "id": "d", "text": "5 tones and 2 semi tones" }
+    ],
+    "correctAnswer": "d",
+    "summary": "There is a semi tone between E-F and between B-C. Between the rest of the notes  there is a full tone"
   }
 ]

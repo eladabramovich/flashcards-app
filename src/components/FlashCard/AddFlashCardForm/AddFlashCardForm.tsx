@@ -100,6 +100,7 @@ const AddFlashCardForm = () => {
         <input
           type="text"
           id="question"
+          autoComplete="off"
           onBlur={(e) => setQuestion(e.target.value)}
         />
         <label htmlFor="question">Question:</label>
@@ -110,6 +111,7 @@ const AddFlashCardForm = () => {
           <input
             type="text"
             id="answer-a"
+            autoComplete="off"
             onBlur={(e) => setAnswers((cur) => ({ ...cur, a: e.target.value }))}
           />
           <label htmlFor="answer-a">A:</label>
@@ -118,6 +120,7 @@ const AddFlashCardForm = () => {
           <input
             type="text"
             id="answer-b"
+            autoComplete="off"
             onBlur={(e) => setAnswers((cur) => ({ ...cur, b: e.target.value }))}
           />
           <label htmlFor="answer-b">B:</label>
@@ -126,6 +129,7 @@ const AddFlashCardForm = () => {
           <input
             type="text"
             id="answer-c"
+            autoComplete="off"
             onBlur={(e) => setAnswers((cur) => ({ ...cur, c: e.target.value }))}
           />
           <label htmlFor="answer-c">C:</label>
@@ -134,6 +138,7 @@ const AddFlashCardForm = () => {
           <input
             type="text"
             id="answer-d"
+            autoComplete="off"
             onBlur={(e) => setAnswers((cur) => ({ ...cur, d: e.target.value }))}
           />
           <label htmlFor="answer-d">D:</label>
