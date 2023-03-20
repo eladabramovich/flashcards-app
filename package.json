@@ -46,6 +46,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react": "^17.0.6"
+    "@types/react": "^17.0.6",
+    "@types/wicg-file-system-access": "^2020.9.5"
   }
 }
