@@ -87,6 +87,10 @@ const QuizPage = () => {
           To add or remove flashcards from the deck, click on "Manage cards"
           link there you will see a short form that allows you to create new
           flashcards and a list of exising cards.
+          <br />
+          <br />
+          To save or load a deck locally please use a chromium based browser
+          such as Google chrome.
         </p>
         <div className={styles.btnCont}>
           {cardsState.error && (
