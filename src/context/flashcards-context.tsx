@@ -19,6 +19,7 @@ interface FlashCardError {
 
 type CardsActions =
   | { type: 'LOAD'; payload?: Flashcard[] }
+  | { type: 'LOAD_DECK'; payload?: Flashcard[] }
   | { type: 'ADD'; payload: Flashcard }
   | { type: 'DELETE'; payload: string }
   | { type: 'SHUFFLE' }
@@ -43,6 +44,8 @@ const reducer = (state: State, action: Action): State => {
   switch (action.type) {
     case 'LOAD':
       return loadCards(state, action);
+    case 'LOAD_DECK':
+      return loadDeckFile(state, action);
     case 'ADD':
       return addCard(state, action);
     case 'DELETE':
@@ -58,11 +61,38 @@ const reducer = (state: State, action: Action): State => {
   }
 };
 
+const loadDeckFile = (state: State, action: Action): State => {
+  if (!validateDeckFile(action.payload)) {
+    state.error = { type: 'LOAD_DECK', message: 'Deck file is corrupted' };
+    return { ...state };
+  }
+
+  localStorage.setItem('flashcards', JSON.stringify(action.payload));
+
+  return loadCards(state, action);
+};
+
+const validateDeckFile = (deck: Flashcard[]): boolean => {
+  for (let card of deck) {
+    if (
+      !card.id ||
+      !card.question ||
+      !card.answers ||
+      !card.correctAnswer ||
+      !card.summary
+    ) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
 const loadCards = (state: State, action: Action): State => {
   const cards: Flashcard[] =
     action.payload! || JSON.parse(localStorage.getItem('flashcards')!);
   if (!cards || cards.length === 0) {
-    state.error = { type: 'load', message: 'Please add at least one card' };
+    state.error = { type: 'LOAD', message: 'Please add at least one card' };
   } else {
     state.error = null;
   }
