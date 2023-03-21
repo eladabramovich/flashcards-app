@@ -42,25 +42,20 @@ const QuizPage = () => {
   };
 
   if (isPlaying && cardsState.items.length >= 1) {
-    content = cardsState.items.map((item) => {
-      if (cardsState.items[0].id === item.id) {
-        return (
-          <div key={item.id}>
-            <FlashCardQuestion
-              question={item.question}
-              summary={item.summary}
-            />
-            <FlashCardAnswers
-              answers={item.answers}
-              correctAnswerId={item.correctAnswer}
-              onClicked={clickHandler}
-            />
-          </div>
-        );
-      } else {
-        return null;
-      }
-    });
+    const currentCard = cardsState.items[0];
+    content = (
+      <div key={currentCard.id}>
+        <FlashCardQuestion
+          question={currentCard.question}
+          summary={currentCard.summary}
+        />
+        <FlashCardAnswers
+          answers={currentCard.answers}
+          correctAnswerId={currentCard.correctAnswer}
+          onClicked={clickHandler}
+        />
+      </div>
+    );
   } else if (isPlaying && cardsState.items.length <= 0) {
     content = (
       <div className={`${styles.btnCont} ${styles.resetView}`}>
