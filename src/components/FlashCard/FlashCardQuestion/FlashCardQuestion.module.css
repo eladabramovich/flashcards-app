@@ -53,6 +53,10 @@
   transform: rotateY(-180deg);
 }
 
+.filpCardBack p {
+  white-space: break-spaces;
+}
+
 @media screen and (max-width: 480px) {
   .filpCard {
     width: 280px;
