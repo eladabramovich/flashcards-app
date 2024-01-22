@@ -1,7 +1,5 @@
 **Description:**
-This is a memory flashcard demo app. In this app you can create
-memory flashcards on any subject that you would like and then
-quiz yourself.
+This is a memory flashcards app. In this app, you can create flashcards on any subject of your choice. Then, you can quiz yourself to aid in studying new subjects or to simply reacquaint yourself with old ones.
 Live Demo: [here](https://wonderful-fermi-12eb2e.netlify.app/)
 
 **Stack used:**
