@@ -1,8 +1,9 @@
+import { ReactNode } from 'react';
 import styles from './FlashCardAnswersItem.module.css';
 
 type Props = {
   id: string;
-  children: Object;
+  children: ReactNode;
   correctAnswerId: string;
   onClicked: (
     e: React.MouseEvent<HTMLDivElement>,
