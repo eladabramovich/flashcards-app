@@ -1,10 +1,7 @@
+import { PropsWithChildren } from 'react';
 import styles from './Container.module.css';
 
-type Props = {
-  children: Object;
-};
-
-const Container = ({ children }: Props) => {
+const Container = ({ children }: PropsWithChildren) => {
   return <div className={styles.container}>{children}</div>;
 };
 

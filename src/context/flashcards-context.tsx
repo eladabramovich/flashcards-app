@@ -1,4 +1,4 @@
-import { createContext, useReducer, Dispatch } from 'react';
+import { createContext, useReducer, Dispatch, PropsWithChildren } from 'react';
 import { Flashcard } from '../types/flashcards-types';
 
 type State = {
@@ -166,11 +166,7 @@ const resetItems = (state: State, _: Action): State => {
   };
 };
 
-type Props = {
-  children: Object;
-};
-
-const FlashCardsContextProvider = ({ children }: Props) => {
+const FlashCardsContextProvider = ({ children }: PropsWithChildren) => {
   const [cardsState, cardsDispatch] = useReducer(reducer, initialState);
 
   return (
