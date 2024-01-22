@@ -13,7 +13,7 @@ const ManageCardsPage = () => {
 
   useEffect(() => {
     if (cardsState.usedItems.length > 0) {
-      cardsDispatch({ type: 'RESET' });
+      cardsDispatch({ type: 'LOAD' });
     }
   }, [cardsState, cardsDispatch]);
 
