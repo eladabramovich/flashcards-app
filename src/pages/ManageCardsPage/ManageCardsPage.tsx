@@ -34,7 +34,8 @@ const ManageCardsPage = () => {
 
       cardsDispatch({ type: 'LOAD_DECK', payload: JSON.parse(contents) });
     } catch (err) {
-      if (err.code !== 20) {
+      const error = err as { code: number; message: string };
+      if (error.code !== 20) {
         alert('Could not load deck file');
       }
     }
@@ -66,7 +67,7 @@ const ManageCardsPage = () => {
 
   const getNewFileHandle = async (): Promise<FileSystemFileHandle | null> => {
     try {
-      const options = {
+      const options: SaveFilePickerOptions = {
         types: [
           {
             description: 'JSON Files',
@@ -77,9 +78,11 @@ const ManageCardsPage = () => {
         ],
       };
       const handle = await window.showSaveFilePicker(options);
+
       return handle;
     } catch (err) {
-      if (err.code !== 20) {
+      const error = err as { code: number; message: string };
+      if (error.code !== 20) {
         throw err;
       } else {
         return null;
@@ -97,7 +100,8 @@ const ManageCardsPage = () => {
       await writeable.close();
     } catch (err) {
       console.error(err);
-      if (err.code !== 20) {
+      const error = err as { code: number; message: string };
+      if (error.code !== 20) {
         throw err;
       }
     }
