@@ -1,9 +1,8 @@
-import { ReactNode } from 'react';
+import { PropsWithChildren } from 'react';
 import styles from './FlashCardAnswersItem.module.css';
 
 type Props = {
   id: string;
-  children: ReactNode;
   correctAnswerId: string;
   onClicked: (
     e: React.MouseEvent<HTMLDivElement>,
@@ -16,7 +15,7 @@ const FlashCardAnswersItem = ({
   correctAnswerId,
   children,
   onClicked,
-}: Props) => {
+}: PropsWithChildren<Props>) => {
   const itemStyle =
     id === correctAnswerId
       ? `${styles.item} ${styles.correct}`
