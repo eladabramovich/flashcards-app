@@ -8,5 +8,5 @@ React and Typescript.
 To get started, download or clone the repository
 and then in a terminal located in the folder:
 ```
-npm start
+npm run dev
 ```
